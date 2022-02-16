@@ -332,7 +332,8 @@ const stub = "{{if .Comments}}{{.Comments}}{{end}}" +
 	"func ({{.Recv}}) {{.Name}}" +
 	"({{range .Params}}{{.Name}} {{.Type}}, {{end}})" +
 	"({{range .Res}}{{.Name}} {{.Type}}, {{end}})" +
-	"{\n" + "panic(\"not implemented\") // TODO: Implement" + "\n}\n\n"
+	"{\n" + "// TODO: Implement\n" + 
+	"return status.Error(codes.Unimplemented, \"Unimplemented\")" + "\n}\n\n"
 
 var tmpl = template.Must(template.New("test").Parse(stub))
 
